@@ -1,6 +1,9 @@
 import React from 'react';
-import Panel from './components/Panel.js';
+import { Provider } from 'react-redux';
+import App from './components/App.js';
+import configureStore from './store/WebDocsStore.js';
 
+const store = configureStore();
 const PANEL = document.getElementById('web-panel');
 
-React.render(<Panel />, PANEL);
+React.render(<Provider store={store}><App /></Provider>, PANEL);
