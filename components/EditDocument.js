@@ -1,5 +1,4 @@
 import React from 'react';
-import Marked from './Marked.js';
 import mui from 'material-ui';
 import ContentEditable from './ContentEditable.js';
 import io from '../io/io.js';
