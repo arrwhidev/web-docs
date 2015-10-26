@@ -13,7 +13,6 @@ export default class EditDocument extends React.Component {
     render() {
         return (
             <div>
-                <h1>EDIT</h1>
                 <mui.TextField
                     onChange={this.writeToNetwork}
                     value={this.props.markdown}

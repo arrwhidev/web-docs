@@ -1,19 +1,28 @@
 import React from 'react';
 import mui from 'material-ui';
+import EditDocument from './EditDocument.js';
+import PreviewDocument from './PreviewDocument.js';
 
-let RaisedButton = mui.RaisedButton;
+let Tabs = mui.Tabs;
+let Tab = mui.Tab;
 
 export default class TabsContainer extends React.Component {
     render() {
         return (
             <div>
-                <RaisedButton id='edit' label="Edit" secondary={true} onClick={this.changeTab} />
-                <RaisedButton id='preview' label="Preview" secondary={true} onClick={this.changeTab} />
+                <Tabs valueLink={{value: this.props.state.activePage, requestChange: this._changeTab}}>
+                  <Tab label='Edit' value='edit' >
+                    <EditDocument markdown={this.props.state.markdown} actions={this.props.actions} />
+                  </Tab>
+                  <Tab label='Preview' value='preview'>
+                    <PreviewDocument markdown={this.props.state.markdown} />
+                  </Tab>
+                </Tabs>
             </div>
         );
     }
 
-    changeTab = (ev) => {
-        this.props.actions.setActivePage(ev.currentTarget.id);
+    _changeTab = (page) => {
+        this.props.actions.setActivePage(page);
     }
 }

@@ -20,7 +20,7 @@
   "dependencies": {
     "express": "^4.10.2",
     "marked": "^0.3.5",
-    "material-ui": "^0.10.4",
+    "material-ui": "^0.13.0",
     "react": "^0.14.0",
     "classnames": "^2.1.2",
     "react-dom": "^0.14.0",
