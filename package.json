@@ -1,12 +1,12 @@
 {
-  "name": "new1",
+  "name": "web-docs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Real-time markdown document collaboration tool.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server && nodemon server.js"
   },
-  "author": "",
+  "author": "Arran White",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^5.8.25",
