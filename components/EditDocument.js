@@ -11,15 +11,13 @@ export default class EditDocument extends React.Component {
 
     render() {
         return (
-            <div>
-                <mui.TextField
-                    onChange={this.writeToNetwork}
-                    value={this.props.markdown}
-                    multiLine={true}
-                    hintText='Write some markdown...'
-                    className='edit-text'
-                />
-            </div>
+            <mui.TextField
+                onChange={this.writeToNetwork}
+                value={this.props.markdown}
+                multiLine={true}
+                hintText='Write some markdown...'
+                className='edit-text'
+            />
         );
     }
 
