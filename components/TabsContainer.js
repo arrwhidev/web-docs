@@ -5,22 +5,23 @@ import PreviewDocument from './PreviewDocument.js';
 
 let Tabs = mui.Tabs;
 let Tab = mui.Tab;
+let Paper = mui.Paper;
 
 export default class TabsContainer extends React.Component {
     render() {
         return (
             <div className='main-nav'>
                 <Tabs valueLink={{value: this.props.state.activePage, requestChange: this._changeTab}} className='tabs'>
-                  <Tab label='Edit' value='edit' className='tab'>
-                    <mui.Paper zDepth={1} rounded={false} className='tab-paper'>
-                        <EditDocument markdown={this.props.state.markdown} actions={this.props.actions} />
-                    </mui.Paper>
-                  </Tab>
-                  <Tab label='Preview' value='preview' className='tab'>
-                    <mui.Paper zDepth={1} rounded={false} className='tab-paper'>
-                        <PreviewDocument markdown={this.props.state.markdown} />
-                    </mui.Paper>
-                  </Tab>
+                    <Tab label='Edit' value='edit' className='tab'>
+                        <Paper zDepth={1} rounded={false} className='tab-paper'>
+                            <EditDocument markdown={this.props.state.markdown} actions={this.props.actions} />
+                        </Paper>
+                    </Tab>
+                    <Tab label='Preview' value='preview' className='tab'>
+                        <Paper zDepth={1} rounded={false} className='tab-paper'>
+                            <PreviewDocument markdown={this.props.state.markdown} />
+                        </Paper>
+                    </Tab>
                 </Tabs>
             </div>
         );
