@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App.js';
 import configureStore from './store/WebDocsStore.js';
@@ -9,4 +10,4 @@ require("react-tap-event-plugin")(); // Need for onTouchTap - can remove when 1.
 const store = configureStore();
 const PANEL = document.getElementById('web-panel');
 
-React.render(<Provider store={store}><App /></Provider>, PANEL);
+ReactDom.render(<Provider store={store}><App /></Provider>, PANEL);
