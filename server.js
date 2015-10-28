@@ -9,13 +9,18 @@ http.listen(1337, function() {
 	console.log('Server started on localhost:1337');
 });
 
-io.on('connection', function(socket) {
-	if(lastData !== null) socket.emit('data', lastData);
+io.on('connection', function(socket) {	
+	if(lastData !== null) socket.emit('wd-markdown', lastData);
 	numUsers++;
-	io.emit('users', numUsers);
+	io.emit('wd-users', numUsers);
 
-	socket.on('data', function (data) {
+	socket.on('wd-markdown', function (data) {
 		lastData = data;
-		io.emit('data', data);
+		io.emit('wd-markdown', data);
+	});
+
+	socket.on('disconnect', function () {
+		numUsers--;
+		io.emit('wd-users', numUsers);
 	});
 });
