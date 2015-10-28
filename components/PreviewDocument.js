@@ -1,6 +1,5 @@
 import React from 'react';
 import marked from 'marked';
-import ContentEditable from './ContentEditable.js';
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -17,7 +16,7 @@ export default class PreviewDocument extends React.Component {
     render() {
         const html = marked(this.props.markdown);
         return (
-            <ContentEditable html={html} />
+            <div dangerouslySetInnerHTML={{__html: html}}></div>
         );
     }
 }

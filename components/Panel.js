@@ -6,9 +6,10 @@ export default class Panel extends React.Component {
 
     render() {
         return (
-            <div>
-                <StatusContainer />
+            <div className='main-panel'>
+                <h1 className='title'>Markdown Live Editor</h1>
                 <TabsContainer actions={this.props.actions} state={this.props.state} />
+                <StatusContainer />
             </div>
         );
     }

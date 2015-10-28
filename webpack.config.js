@@ -15,7 +15,10 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {stage: 0},
                 exclude: /node_modules/
+            },{
+                test: /\.scss$/,
+                loaders: ['style','css','sass']
             }
         ]
-    },
+    }
 };

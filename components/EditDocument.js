@@ -1,6 +1,5 @@
 import React from 'react';
 import mui from 'material-ui';
-import ContentEditable from './ContentEditable.js';
 import io from '../io/io.js';
 
 export default class EditDocument extends React.Component {
@@ -17,6 +16,8 @@ export default class EditDocument extends React.Component {
                     onChange={this.writeToNetwork}
                     value={this.props.markdown}
                     multiLine={true}
+                    hintText='Write some markdown...'
+                    className='edit-text'
                 />
             </div>
         );
