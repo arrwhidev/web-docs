@@ -5,6 +5,7 @@ Early alpha, works but much to do!
 
 ```
 npm install && npm start
+http://localhost:8080/webpack-dev-server/
 ```
 
 ## TODO
