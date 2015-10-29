@@ -4,7 +4,7 @@
   "description": "Real-time markdown document collaboration tool.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server && nodemon server.js"
+    "start": "webpack-dev-server"
   },
   "author": "Arran White",
   "license": "ISC",

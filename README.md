@@ -4,7 +4,9 @@ Real-time markdown document collaboration tool.
 Early alpha, works but much to do!
 
 ```
-npm install && npm start
+npm install
+npm start
+nodemon server.js
 http://localhost:8080/webpack-dev-server/
 ```
 
