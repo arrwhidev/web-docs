@@ -1,5 +1,5 @@
 import React from 'react';
-import toHtml from '../util/toHtml.js';
+import toHtml from '../util/ToHtml.js';
 
 export default class PreviewDocument extends React.Component {
     render() {

@@ -1,4 +1,5 @@
 import * as types from '../actions/ActionTypes.js';
+import DiffUtils from '../util/DiffUtils.js';
 
 const initialState = {
     activePage: 'edit',
@@ -10,7 +11,8 @@ export default function todos(state = initialState, action) {
         case types.SET_ACTIVE_PAGE:
             return Object.assign({}, state, {activePage: action.newActivePage});
         case types.UPDATE_TEXT:
-            return Object.assign({}, state, { markdown: action.newText });
+            const newText = DiffUtils.applyDiff(state.markdown, action.diffObj);
+            return Object.assign({}, state, { markdown: newText });
         default:
             return state;
     }

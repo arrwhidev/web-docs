@@ -1,12 +1,18 @@
 import React from 'react';
 import mui from 'material-ui';
 import io from '../io/io.js';
+import DiffUtils from '../util/DiffUtils.js';
 
 export default class EditDocument extends React.Component {
 
     constructor() {
         super();
-        io.setReadDataCallback(this.networkCallback);
+
+        // TODO - this is no longer specific to this file, move it to somewhere common.
+        // Can then remove the entire constructor.
+        io.setReadDataCallback((diffObj) => {
+            this.props.actions.updateText(diffObj);
+        });
     }
 
     render() {
@@ -22,10 +28,7 @@ export default class EditDocument extends React.Component {
     }
 
     writeToNetwork = (ev) => {
-        io.write(ev.target.value);
-    }
-
-    networkCallback = (data) => {
-        this.props.actions.updateText(data);
+        const diffObj = DiffUtils.calculateDiff(this.props.markdown, ev.target.value);
+        io.write(diffObj);
     }
 }
