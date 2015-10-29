@@ -11,6 +11,7 @@ export default function todos(state = initialState, action) {
         case types.SET_ACTIVE_PAGE:
             return Object.assign({}, state, {activePage: action.newActivePage});
         case types.UPDATE_TEXT:
+            console.log(action.diffObj);
             const newText = DiffUtils.applyDiff(state.markdown, action.diffObj);
             return Object.assign({}, state, { markdown: newText });
         default:

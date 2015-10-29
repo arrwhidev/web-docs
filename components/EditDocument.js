@@ -8,10 +8,17 @@ export default class EditDocument extends React.Component {
     constructor() {
         super();
 
-        // TODO - this is no longer specific to this file, move it to somewhere common.
+        // TODO - there are no longer specific to this file, move them somewhere common.
         // Can then remove the entire constructor.
         io.setReadDataCallback((diffObj) => {
             this.props.actions.updateText(diffObj);
+        });
+        io.setStartMarkdownCallback((diffObjs) => {
+            for (var key in diffObjs) {
+                if (diffObjs.hasOwnProperty(key)) {
+                    this.props.actions.updateText(diffObjs[key]);
+                }
+            }
         });
     }
 
