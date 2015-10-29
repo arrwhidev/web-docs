@@ -12,4 +12,4 @@ http://localhost:8080/webpack-dev-server/
 
 ## TODO
  * Some kind of persistence to enable document switching. At the moment when the server stops the document is lost.
- * Need a smart way to only write changes to server, at the moment sending whole document on every key change so this is super mega awful!
+ * Each text change only sends the line that changed. New clients don't get the whole document, need to figure this out.
