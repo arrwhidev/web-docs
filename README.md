@@ -5,6 +5,8 @@ Early alpha, works but much to do!
 
 ```
 npm install
+npm test
+
 npm start
 nodemon server.js
 http://localhost:8080/webpack-dev-server/
