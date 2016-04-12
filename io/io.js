@@ -1,19 +1,24 @@
-var socket = require('socket.io-client')('http://localhost:1337');
+const socket = require('socket.io-client')('http://localhost:1337');
+import * as Actions from '../actions/Actions';
 
-module.exports = {
-    write: (data) => {
-        socket.emit('wd-markdown', data);
-    },
+export const write = data => {
+    socket.emit('wd-markdown', data);
+};
 
-    setStartMarkdownCallback: (func) => {
-        socket.on('wd-start-markdown', func);
-    },
+export default ({ dispatch }) => {
+    socket.on('wd-users', numUsers => {
+        dispatch(Actions.recvUsers(numUsers));
+    });
 
-    setReadDataCallback: (func) => {
-        socket.on('wd-markdown', func);
-    },
+    socket.on('wd-start-markdown', diffObjs => {
+        Object.keys(diffObjs).map(key => {
+            if (diffObjs.hasOwnProperty(key)) {
+                dispatch(Actions.recvText(diffObjs[key]));
+            }
+        });
+    });
 
-    setReadUsersCallback: (func) => {
-        socket.on('wd-users', func);
-    }
+    socket.on('wd-markdown', diffObj => {
+        dispatch(Actions.recvText(diffObj));
+    });
 };

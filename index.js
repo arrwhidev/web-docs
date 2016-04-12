@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './components/App.js';
-import configureStore from './store/WebDocsStore.js';
+import reactTapEventPlugin from 'react-tap-event-plugin';
+import Panel from './components/Panel';
+import createStore from './store/createStore';
+import bootstrapIO from './io/io';
 import './styles/styles.scss';
 
-require("react-tap-event-plugin")(); // Need for onTouchTap - can remove when 1.0
+reactTapEventPlugin();
+const store = createStore();
+bootstrapIO(store);
 
-const store = configureStore();
-const PANEL = document.getElementById('web-panel');
-
-ReactDom.render(<Provider store={store}><App /></Provider>, PANEL);
+ReactDom.render(
+    <Provider store={store}>
+        <Panel />
+    </Provider>
+,document.getElementById('web-panel'));

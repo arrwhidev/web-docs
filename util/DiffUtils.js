@@ -1,10 +1,10 @@
-const calculateDiff = (oldText, newText) => {
+export const calculateDiff = (oldText, newText) => {
     const oldLines = oldText.split('\n');
     const newLines = newText.split('\n');
     return calculateModifiedLine(oldLines, newLines);
 }
 
-const applyDiff = (oldText, diffObj) => {
+export const applyDiff = (oldText, diffObj) => {
     const oldLines = oldText.split('\n');
 
     if(diffObj.op === 'add') {
@@ -21,11 +21,11 @@ const applyDiff = (oldText, diffObj) => {
     }, '');
 }
 
-const createDiffObject = (op, line, text) => {
+export const createDiffObject = (op, line, text) => {
     return { op, line, text };
 }
 
-const calculateModifiedLine = (oldLines, newLines) => {
+export const calculateModifiedLine = (oldLines, newLines) => {
     let op, len;
     if(newLines.length > oldLines.length) {
         op = 'add';
@@ -48,10 +48,3 @@ const calculateModifiedLine = (oldLines, newLines) => {
 
     return createDiffObject('nothing', 0, '');
 }
-
-module.exports = {
-    applyDiff,
-    calculateDiff,
-    createDiffObject,
-    calculateModifiedLine
-};

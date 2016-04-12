@@ -1,9 +1,4 @@
 import * as types from './ActionTypes.js';
 
-export function setActivePage(page) {
-    return { type: types.SET_ACTIVE_PAGE, newActivePage: page };
-}
-
-export function updateText(diffObj) {
-    return { type: types.UPDATE_TEXT, diffObj };
-}
+export const recvText = diffObj => ({ type: types.IO_RECV_TEXT, diffObj });
+export const recvUsers = numUsers => ({ type: types.IO_RECV_USERS, numUsers });
